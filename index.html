@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="ContactHub - A simple contact search and organizer using Data Structures and Algorithms.">
+
+    <title>ContactHub | Contact Organizer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">C</div>
+
+                <div>
+                    <h1>ContactHub</h1>
+                    <p>Contact Search & Organizer</p>
+                </div>
+            </div>
+
+            <span class="header-tag">DSA MINI PROJECT</span>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <div>
+                <p class="eyebrow">CONTACT MANAGEMENT SYSTEM</p>
+                <h2>Manage your contacts effortlessly.</h2>
+                <p class="welcome-text">
+                    Store, search and organize all your important contacts
+                    in one place.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <div class="dashboard-card">
+                <div class="stat-icon blue">👥</div>
+
+                <div>
+                    <p class="stat-label">Total Contacts</p>
+                    <h3 id="totalContacts">0</h3>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="stat-icon purple">💼</div>
+
+                <div>
+                    <p class="stat-label">Work Contacts</p>
+                    <h3 id="workContacts">0</h3>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="stat-icon orange">🏠</div>
+
+                <div>
+                    <p class="stat-label">Family Contacts</p>
+                    <h3 id="familyContacts">0</h3>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <div class="stat-icon green">🤝</div>
+
+                <div>
+                    <p class="stat-label">Friends</p>
+                    <h3 id="friendContacts">0</h3>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Search Section -->
+        <section class="panel search-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">QUICK SEARCH</p>
+                    <h2>Find a Contact</h2>
+                </div>
+
+                <span class="live-badge">● LIVE SEARCH</span>
+            </div>
+
+            <div class="search-controls">
+
+                <div class="search-input-wrapper">
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search by name or phone number..."
+                        autocomplete="off"
+                    >
+                </div>
+
+                <button type="button"
+                    class="btn btn-secondary"
+                    id="showAllBtn">
+                    Show All
+                </button>
+
+            </div>
+
+            <p class="search-hint">
+                Search results update automatically as you type.
+            </p>
+
+        </section>
+
+
+        <!-- Add Contact Form -->
+        <section class="panel form-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CONTACT DETAILS</p>
+                    <h2 id="formHeading">Add New Contact</h2>
+                </div>
+
+                <span class="required-note">* Required fields</span>
+            </div>
+
+
+            <form id="contactForm">
+
+                <input type="hidden" id="contactId">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="name">
+                            Full Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter full name"
+                            maxlength="60"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="phone">
+                            Phone Number <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="10-digit phone number"
+                            maxlength="10"
+                            inputmode="numeric"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="example@gmail.com"
+                            maxlength="100"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="category">
+                            Category <span>*</span>
+                        </label>
+
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Work">Work</option>
+                            <option value="Friends">Friends</option>
+                            <option value="Family">Family</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button type="submit"
+                        class="btn btn-primary"
+                        id="submitBtn">
+                        + Add Contact
+                    </button>
+
+                    <button type="button"
+                        class="btn btn-secondary"
+                        id="cancelEditBtn"
+                        hidden>
+                        Cancel
+                    </button>
+
+                </div>
+
+                <p id="message" class="message" role="status"
+                    aria-live="polite"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- Contact Directory -->
+        <section class="panel directory-section">
+
+            <div class="directory-heading">
+
+                <div>
+                    <p class="eyebrow">YOUR COLLECTION</p>
+                    <h2>Contact Directory</h2>
+                    <p id="resultCount" class="result-count">
+                        0 contacts found
+                    </p>
+                </div>
+
+
+                <div class="sort-control">
+
+                    <label for="sortOrder">Sort by:</label>
+
+                    <select id="sortOrder">
+                        <option value="asc">Name: A to Z</option>
+                        <option value="desc">Name: Z to A</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div id="contactList" class="contact-list">
+
+                <div class="empty-state">
+                    <div class="empty-icon">👤</div>
+                    <h3>No contacts yet</h3>
+                    <p>Add your first contact to get started.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>
+            ContactHub | Data Structures and Algorithms Mini Project
+        </p>
+
+        <p>Built using HTML5, CSS3 and JavaScript ES6</p>
+    </footer>
+
+
+    <!-- JavaScript Files -->
+    <script src="js/contacts.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/sort.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

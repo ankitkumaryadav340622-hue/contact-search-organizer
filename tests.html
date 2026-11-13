@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ContactHub - DSA Test Center</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            color: #202b42;
+            padding: 30px 5%;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        header {
+            background: #17243e;
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #c5d1df;
+            font-size: 13px;
+        }
+
+        .panel {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .panel h2 {
+            margin-bottom: 15px;
+            font-size: 19px;
+        }
+
+        .test-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px solid #e5e9f2;
+            font-size: 13px;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .pass {
+            background: #e5f8ee;
+            color: #15976b;
+        }
+
+        .fail {
+            background: #fff0f0;
+            color: #e34d59;
+        }
+
+        button {
+            background: #3157d5;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #2443ad;
+        }
+
+        #summary {
+            margin-top: 18px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .complexity {
+            color: #788399;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        @media(max-width: 550px) {
+            body {
+                padding: 15px 4%;
+            }
+
+            .panel {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <h1>ContactHub DSA Test Center</h1>
+            <p>Algorithm Verification and Test Results</p>
+        </header>
+
+        <section class="panel">
+
+            <h2>Automated Test Cases</h2>
+
+            <p class="complexity">
+                This testing environment verifies the functionality
+                of the implemented Data Structures and Algorithms.
+            </p>
+
+            <div id="testResults"></div>
+
+            <p id="summary">Tests have not been executed.</p>
+
+            <br>
+
+            <button id="runTestsBtn" type="button">
+                Run All Tests
+            </button>
+
+        </section>
+
+
+        <section class="panel">
+
+            <h2>Algorithm Complexity</h2>
+
+            <p class="complexity">
+                <strong>Linear Search</strong><br>
+                Best Case: O(1)<br>
+                Average Case: O(n)<br>
+                Worst Case: O(n)<br><br>
+
+                <strong>Merge Sort</strong><br>
+                Best Case: O(n log n)<br>
+                Average Case: O(n log n)<br>
+                Worst Case: O(n log n)<br>
+                Auxiliary Space: O(n)<br><br>
+
+                <strong>Array Operations</strong><br>
+                Index Access: O(1)<br>
+                Search by ID: O(n)<br>
+                Deletion: O(n)
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/contacts.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/sort.js"></script>
+    <script src="js/tests.js"></script>
+
+</body>
+</html>

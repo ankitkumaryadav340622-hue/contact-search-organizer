@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ContactHub - Performance Testing</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fb;
+            color: #202b42;
+            padding: 30px 5%;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        header {
+            background: #17243e;
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        header p {
+            color: #c5d1df;
+            margin-top: 8px;
+            font-size: 13px;
+        }
+
+        .panel {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 19px;
+            margin-bottom: 15px;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            background: #3157d5;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #2443ad;
+        }
+
+        .secondary {
+            background: #e9edfa;
+            color: #3157d5;
+        }
+
+        .test-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid #e5e9f2;
+            font-size: 13px;
+        }
+
+        .pass {
+            color: #15976b;
+            font-weight: bold;
+        }
+
+        .fail {
+            color: #e34d59;
+            font-weight: bold;
+        }
+
+        .muted {
+            color: #788399;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 13px;
+            border-bottom: 1px solid #e5e9f2;
+        }
+
+        th {
+            background: #f4f6fb;
+        }
+
+        #summary {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        @media(max-width: 550px) {
+            body {
+                padding: 15px 4%;
+            }
+
+            .panel {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <h1>ContactHub Performance Lab</h1>
+            <p>Advanced DSA Testing and Performance Analysis</p>
+        </header>
+
+        <section class="panel">
+
+            <h2>Dataset Testing</h2>
+
+            <p class="muted">
+                Generate sample contact records and measure
+                searching, sorting and storage performance.
+            </p>
+
+            <div class="controls">
+
+                <button id="runPerformanceBtn">
+                    Run Performance Tests
+                </button>
+
+                <button id="runStorageBtn" class="secondary">
+                    Test LocalStorage
+                </button>
+
+            </div>
+
+            <p id="summary" aria-live="polite">
+                Testing has not started.
+            </p>
+
+        </section>
+
+
+        <section class="panel">
+
+            <h2>Algorithm Performance Results</h2>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Contacts</th>
+                            <th>Search Time (ms)</th>
+                            <th>Sort Time (ms)</th>
+                            <th>Sorted Correctly</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="performanceResults">
+
+                        <tr>
+                            <td colspan="4">
+                                Run tests to see results.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <h2>LocalStorage Results</h2>
+
+            <div id="storageResults" class="muted">
+                Storage tests have not been executed.
+            </div>
+
+        </section>
+
+
+        <section class="panel">
+
+            <h2>Testing Notes</h2>
+
+            <p class="muted">
+                Linear Search: O(n) worst-case time complexity.
+                <br>
+                Merge Sort: O(n log n) time complexity.
+                <br>
+                Merge Sort auxiliary space: O(n).
+                <br>
+                Measurements depend on your browser and computer.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/search.js"></script>
+    <script src="js/sort.js"></script>
+    <script src="js/advanced-tests.js"></script>
+
+</body>
+</html>
